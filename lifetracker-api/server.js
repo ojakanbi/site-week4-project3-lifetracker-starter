@@ -1,5 +1,7 @@
-const express = require('express'); //importing express
 
-const app = express(); //creating an express app
+const app = require('./app'); //importing the app
+const { PORT } = require("./config"); // imports the port from the config file
 
-const port = process.env.PORT || 5000; //setting the port
+
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`)); //telling the app to listen on the port
