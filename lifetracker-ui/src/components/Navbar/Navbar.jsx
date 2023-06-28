@@ -1,15 +1,16 @@
 import React from "react";
 import "./Navbar.css";
+import logobanner from "../../../public/images/lifeTracker-banner.png";
+import logo from "../../../public/images/lifeTracker-logo.png";
 
 export default function Navbar() {
   return (
     <div className="nav-container">
       <nav className="Navbar">
         <div>
-          <image>image</image>
+          <img src={logo} className="logo"></img>
         </div>
         <ul>
-            
           <li>
             <a href="/">Activity</a>
           </li>

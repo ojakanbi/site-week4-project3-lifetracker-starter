@@ -1,6 +1,32 @@
+:root {
+  --body-color: #222222;
+  --sec-color: #FFFFFF;
+  --third-color: #1C5D99;
+  --fourth-color: #639FAB;
+  --text-color: #BBCDE5;
+}
+
 .tiles {
   display: flex;
   align-items: center;
   width: 100%;
   gap: 20px;
+}
+
+.home-container {
+  background-color: var(--body-color);
+}
+
+.banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  padding: 20px;
+}
+
+.runner-img {
+  height: 30%;
+width: 30%;
+  
 }

@@ -1,4 +1,5 @@
 import Navbar from '../Navbar/Navbar'
+import Home from '../Home/Home'
 import './App.css'
 import React from 'react'
 
@@ -9,6 +10,7 @@ function App() {
     <div>
 
       <Navbar />
+      <Home />
 
     </div>
   )
