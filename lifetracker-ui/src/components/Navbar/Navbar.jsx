@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import logobanner from "../../images/lifeTracker-banner.png";
 import logo from "../../images/lifeTracker-logo.png";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -26,8 +27,10 @@ export default function Navbar() {
         </ul>
 
         <div className="signIn-container">
+          
             <button>Sign In</button>
-            <button>Register</button>
+            <Link to="/auth/register"> <button>Register</button></Link>
+            
            
         </div>
       </nav>

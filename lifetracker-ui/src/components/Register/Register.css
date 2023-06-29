@@ -1,0 +1,28 @@
+:root {
+    --body-color: #000000;
+    --sec-color: #FFFFFF;
+    --third-color: #1C5D99;
+    --fourth-color: #639FAB;
+    --text-color: #BBCDE5;
+  }
+
+  
+
+    .register-container {
+        height: 100vh;
+        width: 100vw;
+        background-color: var(--body-color);
+        display: flex;
+       margin-top: 20px;
+        justify-content: center;
+    }
+
+    .register-container form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 50%;
+        width: 50%;
+        background-color: var(--fourth-color);
+    }

@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import "./Register.css";
+
 
 
 export default function Register({user, setUser}) {
@@ -28,6 +30,7 @@ export default function Register({user, setUser}) {
 
 
     return (
+        <div className="register-container">
         <form onSubmit={handleSubmit}>
             <div className='grid'></div>
             <label htmlFor='firstname'>First Name
@@ -52,5 +55,6 @@ export default function Register({user, setUser}) {
 
 
         </form>
+        </div>
     )
 }
