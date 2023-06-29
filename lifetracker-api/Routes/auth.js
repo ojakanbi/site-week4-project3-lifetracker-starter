@@ -17,6 +17,8 @@ router.post("/register", async (req, res, next) => { //creating a route for the 
 
     try {  // allows us to catch any errors
         const user = await User.register(req.body); //calling the register method from the user model
+        
+        
 
     }catch (err) {
         return next(err);
