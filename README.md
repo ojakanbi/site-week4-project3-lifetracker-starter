@@ -1,5 +1,7 @@
 # Project #3: LifeTracker Application
 
+psql commands = psql, \c [dbName] , \dt 
+
 ## Overview
 
 > Data is the new oil - Clive Humbly

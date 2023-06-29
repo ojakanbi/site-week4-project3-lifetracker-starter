@@ -28,7 +28,8 @@ export default function Navbar() {
 
         <div className="signIn-container">
           
-            <button>Sign In</button>
+          
+           <Link to="/auth/login"> <button>Sign In</button></Link>
             <Link to="/auth/register"> <button>Register</button></Link>
             
            

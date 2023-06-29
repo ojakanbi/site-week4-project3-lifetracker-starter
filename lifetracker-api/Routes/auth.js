@@ -7,6 +7,7 @@ router.get('/', (req, res) => res.send('User route hit')); //creating a route
 router.post("/login", async (req, res, next) => {    // creating a route for the login page
     try {
         const user = await User.login(req.body); //calling the authenticate method from the user model
+        res.status(200).json({ user }); // sends a response to the client
     } catch (err) {
         return next(err);
     }

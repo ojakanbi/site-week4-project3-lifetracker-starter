@@ -2,6 +2,7 @@ import Navbar from "../Navbar/Navbar";
 import Home from "../Home/Home";
 import "./App.css";
 import React from "react";
+
 import axios from "axios";
 import {
   BrowserRouter as Router,
@@ -9,8 +10,11 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import Register from "../Register/Register";
+
 import { useState } from "react";
-import { useEffect } from "react";
+import Login from "../Login/login";
+
+
 
 function App() {
   const [user, setUser] = useState({
@@ -20,6 +24,8 @@ function App() {
     username: "",
     password: "",
   });
+
+  const [loginUser, setLoginUser] = useState({emailaddress: "", password: ""});
   console.log(user); // handling the api request to register the user
 
   return (
@@ -32,6 +38,8 @@ function App() {
       
           />
           <Route path="auth/register" element={<Register user={user} setUser={setUser} />} />
+          <Route path="auth/login" element={<Login loginUser={loginUser} setLoginUser={setLoginUser} />} />
+          
 
         </Routes>
         

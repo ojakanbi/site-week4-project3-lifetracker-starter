@@ -8,6 +8,7 @@ const { BCRYPT_WORK_FACTOR } = require("../config") // importing the BCRYPT_WORK
 
 class User {
     static async makePublicUser(user) {
+        
         return {
             id: user.id,
             firstName: user.firstName,
@@ -19,12 +20,15 @@ class User {
     }
 
     static async login(credentials) {
-        const requiredFields = ["email", "password"]; // creating an array of the required fields
+        const requiredFields = ["emailaddress", "password"]; // creating an array of the required fields
         validateFields(credentials, requiredFields); // validating the required fields
 
-        const user = await User.fetchUserByEmail(credentials.email); // fetching the user by email
+        const user = await User.fetchUserByEmail(credentials.emailaddress); // fetching the user by email
+       
         if (user) {
-            const isValid = await bcrypt.compare(credentials.password, user.password); // comparing the password to the hashed password
+            // console.log("isValid", User.password, credentials.password)
+            const isValid = await bcrypt.compare(credentials.password, user.hash_password); // comparing the password to the hashed password
+            console.log("isValid", isValid)
             if (isValid) {
                 return await User.makePublicUser(user); // returning the user
             }
