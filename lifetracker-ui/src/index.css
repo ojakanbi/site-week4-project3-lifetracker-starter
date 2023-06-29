@@ -6,3 +6,7 @@
     min-height: 100vh;
     background-color: #000000;
   }
+
+body {
+  background-color: black;
+}
