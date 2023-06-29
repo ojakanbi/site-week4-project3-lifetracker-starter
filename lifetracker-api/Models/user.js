@@ -35,9 +35,10 @@ class User {
     static async register(credentials) {
         console.log("credentials", credentials)
         const requiredFields = ["emailaddress", "password", "username"]; // creating an array of the required fields
+
         validateFields(credentials,requiredFields); // validating the required fields
 
-        if (credentials.email.indexOf("@") <= 0) { // checking if the email is valid
+        if (credentials.emailaddress.indexOf("@") <= 0) { // checking if the email is valid
             throw new BadRequestError("Invalid email.");
         }
 
@@ -45,20 +46,21 @@ class User {
             throw new BadRequestError("Password must be at least 6 characters.");
         }
 
-        const existingUser = await User.fetchUserByEmail(credentials.email); // fetching the user by email
+        const existingUser = await User.fetchUserByEmail(credentials.emailaddress); // fetching the user by email
         if (existingUser) {
             throw new BadRequestError(`Duplicate email: ${credentials.email}`); // throwing an error if the email already exists
         }
 
         const hashedPassword = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR); // hashing the password
-        const normalizedEmail = credentials.email.toLowerCase(); // normalizing the email
+        // console.log("hashedPassword", hashedPassword)
+        const normalizedEmail = credentials.emailaddress.toLowerCase(); // normalizing the email
         const normalizedUsername = credentials.username.toLowerCase(); // normalizing the username
 
         const userResult = await db.query(
             `INSERT INTO users (first_name, last_name, email, username, hash_password)
             VALUES ($1, $2, $3, $4, $5)
             RETURNING id, email, username`,
-            [credentials.firstName, credentials.lastName, normalizedEmail, normalizedUsername, hashedPassword]
+            [credentials.firstname, credentials.lastname, normalizedEmail, normalizedUsername, hashedPassword]
           );// inserting the user into the database
 
         const user = userResult.rows[0]; // creating a variable for the user
