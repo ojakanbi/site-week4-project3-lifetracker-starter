@@ -51,8 +51,8 @@ setLoginUser({
     <div>
       <form className = "form" onSubmit={handleSubmit}>
         <label htmlFor="emailaddress">
-          Email Address
-          <input
+          <p>Email Address</p>
+          <TextField
             type="email"
             name="emailaddress"
             value={loginUser.emailaddress}
@@ -61,8 +61,8 @@ setLoginUser({
           />
         </label>
         <label htmlFor="password">
-          Password
-          <input
+        <p>Password</p>
+          <TextField
             type="password"
             name="password"
             value={loginUser.password}
