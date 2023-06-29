@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
-import logobanner from "../../../public/images/lifeTracker-banner.png";
-import logo from "../../../public/images/lifeTracker-logo.png";
+import logobanner from "../../images/lifeTracker-banner.png";
+import logo from "../../images/lifeTracker-logo.png";
 
 export default function Navbar() {
   return (

@@ -1,5 +1,5 @@
 :root {
-  --body-color: #222222;
+  --body-color: #000000;
   --sec-color: #FFFFFF;
   --third-color: #1C5D99;
   --fourth-color: #639FAB;
@@ -20,7 +20,7 @@
 .banner-container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 100%;
   padding: 20px;
 }
@@ -28,5 +28,56 @@
 .runner-img {
   height: 30%;
 width: 30%;
+margin-left: 45%;
+border-radius: 20px;
+}
+
+.logo-image {
+  margin-left: 40%;
+  width: 600px;
+}
+
+.categories-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  padding: 20px;
+
   
+}
+
+.activities-img{
+  border-radius: 20px;
+  height: 70%;
+  width: 70%;
+
+}
+
+.activities-img:hover{
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+  
+ 
+
+
+
+.activities-header{
+  color: var(--text-color);
+  font-size: 50px;
+  font-weight: 500;
+ 
+}
+
+.category-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  padding: 20px;
+
+
 }
