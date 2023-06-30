@@ -1,6 +1,6 @@
 # Project #3: LifeTracker Application
 
-psql commands = psql, \c [dbName] , \dt 
+psql commands = psql,  \c[dbName] , \dt 
 
 ## Overview
 

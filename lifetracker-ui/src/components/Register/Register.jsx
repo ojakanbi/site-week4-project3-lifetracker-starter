@@ -30,24 +30,30 @@ export default function Register({user, setUser}) {
 
 
     return (
+        <>
+        
+        <div className="register-header">
+            <h1>Register</h1>
+        </div>
         <div className="register-container">
+            
         <form onSubmit={handleSubmit}>
             <div className='grid'></div>
-            <label htmlFor='firstname'>First Name
-                <input type='text' name='firstname' value={user.firstname} onChange={handleChange} required />
+            <label htmlFor='firstname'> <h3>First Name</h3>
+                <input type='text' name='firstname'placeholder="John" value={user.firstname} onChange={handleChange} required />
             
             </label>
-            <label htmlFor='lastname'>Last Name 
-                <input type='text' name='lastname' value={user.lastname} onChange={handleChange} required />
+            <label htmlFor='lastname'><h3>Last Name </h3>
+                <input type='text' name='lastname' placeholder="Doe" value={user.lastname} onChange={handleChange} required />
             </label>
-            <label htmlFor='emailaddress'>Email Address 
-                <input type='email' name='emailaddress' value={user.emailaddress} onChange={handleChange} required />
+            <label htmlFor='emailaddress'><h3>Email Address </h3>
+                <input type='email' name='emailaddress' placeholder="JohnDoe@email.com" value={user.emailaddress} onChange={handleChange} required />
             </label>
-            <label htmlFor='username'>Username
-                <input type='text' name='username' value={user.username} onChange={handleChange} required />
+            <label htmlFor='username'><h3>Username</h3>
+                <input type='text' name='username' placeholder="Johndoe123"value={user.username} onChange={handleChange} required />
             </label>
-            <label htmlFor='password'>Password 
-                <input type='password' name='password' value={user.password} onChange={handleChange} required />
+            <label htmlFor='password'><h3>Password </h3>
+                <input type='password' name='password' placeholder="Password" value={user.password} onChange={handleChange} required />
             </label>
             <button type='submit'>Register</button>
 
@@ -56,5 +62,6 @@ export default function Register({user, setUser}) {
 
         </form>
         </div>
+        </>
     )
 }
