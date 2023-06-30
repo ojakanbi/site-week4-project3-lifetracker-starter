@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css"; 
 import logobanner from "../../images/lifetracker-banner.png";
+import logo from "../../images/logo.gif"
 import runner from "../../images/runner.jpg"
 import fitness from "../../images/fitness.jpg"
 import food from "../../images/food.jpg"
@@ -11,7 +12,7 @@ export default function Home() {
         <div className="home-container">
             <div className="banner-container">
                 <section>
-                        <img className = "logo-image"src= {logobanner}></img>
+                        <img className = "logo-image"src= {logo}></img>
                 </section>
 
                 <section>

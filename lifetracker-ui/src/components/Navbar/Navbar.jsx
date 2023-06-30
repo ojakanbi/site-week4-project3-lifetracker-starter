@@ -1,7 +1,8 @@
 import React from "react";
 import "./Navbar.css";
+import logo from "../../images/logo.gif"
 import logobanner from "../../images/lifeTracker-banner.png";
-import logo from "../../images/lifeTracker-logo.png";
+
 import { Link, Outlet } from "react-router-dom";
 
 export default function Navbar() {
