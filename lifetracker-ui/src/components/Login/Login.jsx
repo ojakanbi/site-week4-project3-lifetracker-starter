@@ -14,12 +14,15 @@ export default function Login({ loginUser, setLoginUser }) {
       .then(response => {
         console.log('User logged in successfully:', response.data);
         setUserInfo(response.data);
+        localStorage.setItem('token', response.data.token);
+        window.location = "/secret"; // Redirect to the secret page upon successful login
         // Handle successful login
       })
       .catch(error => {
         console.error('Error logging in user:', error);
         // Handle error during login
       });
+      
   }
 
   function handleChange(event) {

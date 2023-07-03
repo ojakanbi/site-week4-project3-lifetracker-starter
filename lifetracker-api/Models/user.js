@@ -2,7 +2,9 @@ const db = require("../db"); // importing the db to be able to query the databas
 const bcrypt = require("bcrypt"); // importing bcrypt to hash the password
 const { BadRequestError, UnauthorizedError} = require("../Utils/error"); // importing the custom error classes
 const { validateFields } = require("../Utils/validate"); // importing the validate function from the jsonschema library
-
+const jwt = require("jsonwebtoken"); // importing the jsonwebtoken library
+const crypto = require("crypto"); // importing the crypto library
+const secretKey = crypto.randomBytes(64).toString('hex') // creating a secret key for the jwt
 const { BCRYPT_WORK_FACTOR } = require("../config") // importing the BCRYPT_WORK_FACTOR from the config file
 
 
@@ -87,7 +89,45 @@ class User {
 
         
     }
+    // create a verifyAuthtoken function using jwt.verify
+    static async verifyAuthToken(token) {
+        try {
+            const decoded = jwt.verify(token, secretKey); // decoding the token
+            return decoded; // returning the decoded token 
+
+        } catch {
+            return null // return null if the token seems to be unvalid or expired
+
+        }
+    } 
+    // create a genrateAuthToken function using jwt.sign
+    static async generateAuthToken(user) {
+        const payload = {
+            id: user.id,
+            username: user.username,
+            email: user.email,
+        }; // creating a payload for the token
+        const token = jwt.sign(payload, secretKey, { expiresIn: "1 week" }); // creating a token
+        console.log("token", token)
+        return token; // returning the token 
+    
+    }
+
+    static async fetchUserById(id) {
+        if (!id) { // checking if the id is null or undefined
+            throw new BadRequestError("No id provided"); // throwing an error if there is no id
+        }
+
+        const query = `SELECT * FROM users WHERE id = $1`; // creating a query to fetch the user by id
+        const result = await db.query(query, [id]); // querying the database
+
+        const user = result.rows[0]; // creating a variable for the user
+
+        return user; // returning the user
+    }
 
 }
+
+
 
 module.exports = User; // exporting the User class
