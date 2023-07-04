@@ -1,11 +1,13 @@
 import React from "react";
 import "./Home.css"; 
-import logobanner from "../../images/lifetracker-banner.png";
-import logo from "../../images/logo.gif"
+
+import logo from "../../images/logo.png"
 import runner from "../../images/runner.jpg"
 import fitness from "../../images/fitness.jpg"
 import food from "../../images/food.jpg"
 import rest from "../../images/rest.jpg"
+import calendar from "../../images/calendar.jpeg"
+
 
 export default function Home() {
     return (
@@ -36,7 +38,7 @@ export default function Home() {
                 </section>
                 <section className="category-container">
                     <h3 className="activities-header">Planner</h3>
-                    <img  className="activities-img" src= {rest}></img>
+                    <img  className="activities-img" src= {calendar}></img>
                 </section>
 
             </div>

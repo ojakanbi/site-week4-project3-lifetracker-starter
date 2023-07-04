@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./login.css";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import login from "../../images/login.png"
 
 export default function Login({ loginUser, setLoginUser, navbar, setNavbar }) {
   const [userInfo, setUserInfo] = useState({});
@@ -38,12 +39,13 @@ export default function Login({ loginUser, setLoginUser, navbar, setNavbar }) {
     
 
       <div className="login-container">
-       
-        <div className="form-container">
-          <div className="form-title">
-            <h3>login image here</h3>
+      <div className="form-title">
+            <img className = "login-img" src={login}></img>
             <h1>Welcome</h1>
           </div>
+       
+        <div className="form-container">
+         
           <div>
             <form className="form" onSubmit={handleSubmit}>
               <label htmlFor="emailaddress">

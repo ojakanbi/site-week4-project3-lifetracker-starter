@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./Register.css";
+import register from "../../images/register.png"
 
 
 
