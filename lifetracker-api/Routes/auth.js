@@ -33,10 +33,11 @@ router.post("/login", async (req, res, next) => {    // creating a route for the
 })  
 
 router.post("/register", async (req, res, next) => { //creating a route for the register page
+    
 
     try {  // allows us to catch any errors
         const user = await User.register(req.body); //calling the register method from the user model
-        
+        console.log(user)
         
 
     }catch (err) {

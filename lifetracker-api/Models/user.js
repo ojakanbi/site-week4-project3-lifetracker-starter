@@ -107,7 +107,7 @@ class User {
             username: user.username,
             email: user.email,
         }; // creating a payload for the token
-        const token = jwt.sign(payload, secretKey, { expiresIn: "1 week" }); // creating a token
+        const token = jwt.sign(payload, secretKey, { expiresIn: "20s" }); // creating a token
         console.log("token", token)
         return token; // returning the token 
     
