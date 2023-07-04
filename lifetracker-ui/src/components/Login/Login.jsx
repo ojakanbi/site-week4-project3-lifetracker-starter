@@ -4,7 +4,7 @@ import "./login.css";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-export default function Login({ loginUser, setLoginUser }) {
+export default function Login({ loginUser, setLoginUser, navbar, setNavbar }) {
   const [userInfo, setUserInfo] = useState({});
 
   function handleSubmit(event) {
@@ -17,6 +17,7 @@ export default function Login({ loginUser, setLoginUser }) {
         localStorage.setItem('token', response.data.token);
         window.location = "/secret"; // Redirect to the secret page upon successful login
         // Handle successful login
+      
       })
       .catch(error => {
         console.error('Error logging in user:', error);

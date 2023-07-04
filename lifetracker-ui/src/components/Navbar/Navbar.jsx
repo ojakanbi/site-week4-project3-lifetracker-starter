@@ -5,7 +5,7 @@ import logobanner from "../../images/lifeTracker-banner.png";
 
 import { Link, Outlet } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({navbar, setNavbar }) {
   return (
     <div className="nav-container">
       <nav className="Navbar">
@@ -27,14 +27,21 @@ export default function Navbar() {
           </li>
         </ul>
 
+        {!navbar?
         <div className="signIn-container">
-          
-          
-           <Link to="/auth/login"> <button>Sign In</button></Link>
+
+          <Link to="/auth/login"> <button>Sign In</button></Link>
             <Link to="/auth/register"> <button>Register</button></Link>
-            
-           
         </div>
+        :
+        <div className="signIn-container">
+<Link to="/auth/login" onClick={() => { setNavbar(false); localStorage.removeItem('token'); }}>
+  <button>Sign Out</button></Link>
+        </div>
+
+        }
+
+
       </nav>
     </div>
   );
