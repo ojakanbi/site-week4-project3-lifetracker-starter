@@ -13,8 +13,12 @@ import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-rou
 import Register from "../Register/Register"; // Importing the Register component
 
 import { useState } from "react"; // Importing the useState hook from React
-import Login from "../Login/login"; // Importing the Login component
+import Login from "../Login/Login"; // Importing the Login component
 import { useEffect } from "react"; // Importing the useEffect hook from React
+import ActivityPage from "../ActivityPage/ActivityPage";
+import ExercisePage from "../ExercisePage/ExercisePage";
+import NutritionPage from "../NutritionPage/NutritionPage";
+import SleepPage from "../SleepPage/SleepPage";
 
 function App() {
   const [navbar, setNavbar] = useState(); // State hook to manage navbar state (whether to show sign out or not)
@@ -44,7 +48,7 @@ function App() {
       const currentTime = Math.floor(Date.now() / 1000); // Getting the current time in seconds
       if (exp < currentTime) {
         localStorage.removeItem('token'); // Removing the token from local storage
-        window.location = "/"; // Redirecting to the homepage
+        ; // Redirecting to the homepage
       }
     }
   });
@@ -61,6 +65,12 @@ function App() {
           <Route path="auth/register" element={<Register user={user} setUser={setUser} />} /> {/* Rendering the Register component */}
           <Route path="auth/login" element={<Login loginUser={loginUser} setLoginUser={setLoginUser} navbar={navbar} setNavbar={setNavbar} />} /> {/* Rendering the Login component */}
           <Route path="/secret" element={<Secret />} /> {/* Rendering the Secret component */}
+          <Route path="/activity" element={<ActivityPage />}/>
+          <Route  path = "/exercise" element={<ExercisePage/>} />
+          <Route path= "/sleep" element={<SleepPage/>}/>
+          <Route path= "/nutrition" element={<NutritionPage/>}/>
+          <Route />
+          
         </Routes>
       </div>
     </BrowserRouter>

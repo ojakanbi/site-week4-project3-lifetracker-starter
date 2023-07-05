@@ -14,16 +14,16 @@ export default function Navbar({navbar, setNavbar }) {
         </div>
         <ul>
           <li>
-            <a href="/">Activity</a>
+            <a href="/activity"  >Activity</a>
           </li>
           <li>
-            <a href="/">Exercise</a>
+            <a href="/exercise">Exercise</a>
           </li>
           <li>
-            <a href="/">Nutrition</a>
+            <a href="/nutrition">Nutrition</a>
           </li>
           <li>
-            <a href="/">Sleep</a>
+            <a href="/sleep">Sleep</a>
           </li>
         </ul>
 
