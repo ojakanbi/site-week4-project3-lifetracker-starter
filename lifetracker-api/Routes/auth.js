@@ -47,6 +47,16 @@ router.post("/register", async (req, res, next) => { //creating a route for the 
 
 })
 
+router.post("/sleep", async (req, res, next) => {
+    console.log("req.body", req.body)
+    try {
+        const sleep = await User.sleep(req.body); //calling the sleep method from the user model
+        return res.status(200).json({ sleep }); //returning the sleep
+    } catch (err) {
+        return next(err);
+    }
+}) //creating a route for the sleep page")
+
 
 
 module.exports = router; //exporting the router

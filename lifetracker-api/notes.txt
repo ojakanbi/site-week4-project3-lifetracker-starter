@@ -1,0 +1,6 @@
+PSQL commands 
+- psql
+- \c lifetracker #connects to the lifetracker DB
+- \dt #to see table
+- \d users #sees detail about the users table
+- SELECT * FROM users; #sees for all records in the table

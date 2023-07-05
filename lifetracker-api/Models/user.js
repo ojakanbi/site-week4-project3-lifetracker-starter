@@ -126,6 +126,20 @@ class User {
         return user; // returning the user
     }
 
+    static async sleep(sleepData, userId) {
+        const requiredFields = [ "starttime", "endtime", "userId"]; // creating an array of the required fields
+        validateFields(sleepData, requiredFields); // validating the required fields
+
+        const query = `INSERT INTO sleep(start_time, end_time, user_id)
+        VALUES ($1, $2, $3)
+        RETURNING id, start_time, end_time, user_id`; // creating a query to insert the sleep data into the database
+        const result = await db.query(query, [sleepData.startime, sleepData.endtime, sleepData.userId]); // querying the database
+
+        const sleep = result.rows[0]; // creating a variable for the sleep data
+
+        return sleep; // returning the sleep data
+    }
+
 }
 
 
