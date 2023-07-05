@@ -16,7 +16,7 @@ export default function Login({ loginUser, setLoginUser, navbar, setNavbar }) {
         console.log('User logged in successfully:', response.data);
         setUserInfo(response.data);
         localStorage.setItem('token', response.data.token);
-        window.location = "/secret"; // Redirect to the secret page upon successful login
+         window.location = "/secret"; // Redirect to the secret page upon successful login
         // Handle successful login
       
       })
