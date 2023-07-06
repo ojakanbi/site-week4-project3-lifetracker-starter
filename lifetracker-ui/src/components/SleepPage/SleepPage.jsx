@@ -5,7 +5,7 @@ import axios from "axios";
 import SleepData from "./SleepData";
 
 
-export default function SleepPage(userInfo, setUserInfo) {
+export default function SleepPage({userInfo, setUserInfo, navbar, setNavbar}) {
     const [ sleepUser, setSleepUser ] = useState({starttime: "", endtime: ""});
    
     const userId = localStorage.getItem('userId');
@@ -40,37 +40,45 @@ export default function SleepPage(userInfo, setUserInfo) {
           [event.target.name]: event.target.value
         });
       }
+
+      console.log("this is the navbar", navbar);
   return (
-    <>
-    <div className="sleepForm-container">
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="starttime">
-                <p>Start datetime</p>
-                <input
-                    type="datetime-local"
-                    name="starttime"
-                    value={sleepUser.starttime}
-                    onChange={handleChange}
-                    required
-                />
-            </label>
-            <label htmlFor="endtime">
-                <p>End datet</p>
-                <input
-                    type="datetime-local"
-                    name="endtime"
-                    value={sleepUser.endtime}
-                    onChange={handleChange}
-                    required
-                />
-            </label>
-            <button type="submit">Submit</button>
 
-        </form>
+      <>
+        {navbar ? (
+          <div className="sleepForm-container">
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="starttime">
+                <p>Start Time</p>
+                <input
+                  type="datetime-local"
+                  name="starttime"
+                  value={sleepUser.starttime}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label htmlFor="endtime">
+                <p>End Time</p>
+                <input
+                  type="datetime-local"
+                  name="endtime"
+                  value={sleepUser.endtime}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <button className="sleep-submit" type="submit">Add Sleep</button>
+            </form>
+            <SleepData sleepState={sleepState} setSleepState={setSleepState} />
+          </div>
+        ) : (
+          <h1>Sign in to view sleep data</h1>
+        )}
+       
+      </>
+    );
     
-    </div>
 
-    <SleepData sleepState={sleepState} setSleepState={setSleepState}/>
-    </>
-  );
+    
 }

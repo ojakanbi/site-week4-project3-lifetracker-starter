@@ -13,7 +13,8 @@ import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-rou
 import Register from "../Register/Register"; // Importing the Register component
 
 import { useState } from "react"; // Importing the useState hook from React
-import Login from "../Login/Login"; // Importing the Login component
+
+import Login from "../Login/Login";
 import { useEffect } from "react"; // Importing the useEffect hook from React
 import ActivityPage from "../ActivityPage/ActivityPage";
 import ExercisePage from "../ExercisePage/ExercisePage";
@@ -36,30 +37,43 @@ function App() {
   }); // State hook to manage user info (for login)
    // Logging the user info (for debugging purposes
   
-  
 
-  // algorithm to decode the token payload 
-  function decodeJWT(token) {
-    const base64Url = token.split('.')[1]; // Extracting the payload part from the token
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/'); // Replacing URL-safe characters in the base64 payload
-    const payload = JSON.parse(atob(base64)); // Decoding base64 and parsing the JSON payload
-  
-    return payload; // Returning the decoded payload
-  }
+   const [decodedToken, setDecodedToken] = useState();
 
-  useEffect(() => {
-    const token = localStorage.getItem('token'); // Retrieving the token from local storage
+   useEffect(() => {
+     const token = localStorage.getItem('token');
+     console.log("token: ", token);
+   
+     if (!decodedToken) {
+       axios.post('http://localhost:3001/auth/decodedtoken', {
+         token: token
+       })
+       .then(response => {
+         console.log('Decoded token retrieved successfully:', response.data);
+         console.log('Decoded token value:', response.data.decodedToken);
+         setDecodedToken(response.data.decodedToken.exp);
+       })
+       .catch(error => {
+         console.error('Error retrieving decoded token:', error);
+       });
+     }
+   
+   }, [decodedToken]);
+   
+   useEffect(() => {
+     console.log("decodedToken:", decodedToken);
+     if (decodedToken) {
+       setNavbar(true); // Setting navbar to true (sign out)
+       const currentTime = Math.floor(Date.now() / 1000); // Getting the current time in seconds
+       if (decodedToken < currentTime) {
+         localStorage.removeItem('token'); // Removing the token from local storage
+         // Redirecting to the homepage
+       }
+     }
+   }, [decodedToken, setNavbar]);
+   
     
-    if (token) {
-      setNavbar(true); // Setting navbar to true (sign out)
-      const {exp} = decodeJWT(token); // Decoding the token and extracting the expiration time
-      const currentTime = Math.floor(Date.now() / 1000); // Getting the current time in seconds
-      if (exp < currentTime) {
-        localStorage.removeItem('token'); // Removing the token from local storage
-        ; // Redirecting to the homepage
-      }
-    }
-  }), [];
+   
 
   const [loginUser, setLoginUser] = useState({emailaddress: "", password: ""}); // State hook for managing login user data
   console.log(user); // Logging the user data (for debugging purposes)
@@ -75,7 +89,7 @@ function App() {
           <Route path="/secret" element={<Secret />} /> {/* Rendering the Secret component */}
           <Route path="/activity" element={<ActivityPage />}/>
           <Route path = "/exercise" element={<ExercisePage/>} />
-          <Route path= "/sleep" element={<SleepPage userInfo={userInfo} setUserInfo={setUserInfo} />} />
+          <Route path= "/sleep" element={<SleepPage userInfo={userInfo} setUserInfo={setUserInfo} setNavbar={setNavbar} navbar={navbar} />} />
           <Route path= "/nutrition" element={<NutritionPage/>}/>
           <Route />
           

@@ -91,14 +91,16 @@ class User {
     }
     // create a verifyAuthtoken function using jwt.verify
     static async verifyAuthToken(token) {
+        
         try {
             const decoded = jwt.verify(token, secretKey); // decoding the token
             return decoded; // returning the decoded token 
+            
 
         } catch {
             return null // return null if the token seems to be unvalid or expired
-
         }
+        
     } 
     // create a genrateAuthToken function using jwt.sign
     static async generateAuthToken(user) {

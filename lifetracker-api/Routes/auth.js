@@ -71,6 +71,15 @@ router.post("/sleepdata", async (req, res, next) => {
     return res.status(200).json({ sleepdata }); // Returning the sleep data
   });
 
+router.post("/decodedtoken", async (req, res, next) => {
+    const token = req.body.token; // Getting the token from the request body
+    const decodedToken = await User.verifyAuthToken(token); // Decoding the token
+    console.log("decodedToken", decodedToken)
+
+
+    return res.status(200).json({ decodedToken }); // Returning the decoded token
+}
+)
   
 
 
