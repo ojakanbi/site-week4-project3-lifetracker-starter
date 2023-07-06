@@ -5,8 +5,8 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import login from "../../images/login.png"
 
-export default function Login({ loginUser, setLoginUser, navbar, setNavbar }) {
-  const [userInfo, setUserInfo] = useState({});
+export default function Login({ loginUser, setLoginUser, navbar, setNavbar, userInfo, setUserInfo}) {
+
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -14,10 +14,14 @@ export default function Login({ loginUser, setLoginUser, navbar, setNavbar }) {
     axios.post('http://localhost:3001/auth/login', loginUser)
       .then(response => {
         console.log('User logged in successfully:', response.data);
-        setUserInfo(response.data);
+        setUserInfo(response.data.user);
+        localStorage.setItem('userId', response.data.user.id);
+        console.log("user info: ", userInfo);
         localStorage.setItem('token', response.data.token);
-         window.location = "/secret"; // Redirect to the secret page upon successful login
+         window.location = "/sleep"; // Redirect to the secret page upon successful login
         // Handle successful login
+        
+        
       
       })
       .catch(error => {

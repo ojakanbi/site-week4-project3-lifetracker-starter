@@ -6,6 +6,8 @@ It also uses the dotenv library to hide the database credentials. */
 const { Client } = require("pg"); // importing the pg library
 const { getDatabaseUrl } = require("./config"); // importing the getDatabaseUrl function from the config file
 
+
+console.log(getDatabaseUrl())
 const db = new Client({ connectionString: getDatabaseUrl() }); // creating a new instance of the Client class and passing in the getDatabaseUrl function
 
 db.connect((err) => {

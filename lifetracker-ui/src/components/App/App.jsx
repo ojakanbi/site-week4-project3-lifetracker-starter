@@ -29,6 +29,14 @@ function App() {
     username: "",
     password: "",
   });
+  const [userInfo, setUserInfo] = useState({
+    id: "",
+    email: "",
+    username: "",
+  }); // State hook to manage user info (for login)
+   // Logging the user info (for debugging purposes
+  
+  
 
   // algorithm to decode the token payload 
   function decodeJWT(token) {
@@ -63,11 +71,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} /> {/* Rendering the Home component */}
           <Route path="auth/register" element={<Register user={user} setUser={setUser} />} /> {/* Rendering the Register component */}
-          <Route path="auth/login" element={<Login loginUser={loginUser} setLoginUser={setLoginUser} navbar={navbar} setNavbar={setNavbar} />} /> {/* Rendering the Login component */}
+          <Route path="auth/login" element={<Login loginUser={loginUser} setLoginUser={setLoginUser} navbar={navbar} setNavbar={setNavbar} userInfo={userInfo} setUserInfo={setUserInfo} />} /> {/* Rendering the Login component */}
           <Route path="/secret" element={<Secret />} /> {/* Rendering the Secret component */}
           <Route path="/activity" element={<ActivityPage />}/>
-          <Route  path = "/exercise" element={<ExercisePage/>} />
-          <Route path= "/sleep" element={<SleepPage/>}/>
+          <Route path = "/exercise" element={<ExercisePage/>} />
+          <Route path= "/sleep" element={<SleepPage userInfo={userInfo} setUserInfo={setUserInfo} />} />
           <Route path= "/nutrition" element={<NutritionPage/>}/>
           <Route />
           

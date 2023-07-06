@@ -35,7 +35,7 @@ export default function Navbar({navbar, setNavbar }) {
         </div>
         :
         <div className="signIn-container">
-<Link to="/auth/login" onClick={() => { setNavbar(false); localStorage.removeItem('token'); }}>
+<Link to="/auth/login" onClick={() => { setNavbar(false);  localStorage.clear();}}>
   <button>Sign Out</button></Link>
         </div>
 

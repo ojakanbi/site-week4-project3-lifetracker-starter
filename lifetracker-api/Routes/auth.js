@@ -2,6 +2,7 @@ const express = require('express'),  //importing express
 router = express.Router(); //creating an instance of the express router
 const User = require("../Models/user"); //importing the user model
 const authenticateJWT = require("../Utils/auth"); //importing the authenticateJWT middleware
+const bodyParser = require('body-parser');
 
 router.get('/user/:id', authenticateJWT, async (req, res) => {
     try {
@@ -47,11 +48,17 @@ router.post("/register", async (req, res, next) => { //creating a route for the 
 
 })
 
+
+
 router.post("/sleep", async (req, res, next) => {
-    console.log("req.body", req.body)
+
+    const { userId, sleepdata } = req.body;
+    console.log("req.body", userId, "req.user.id", sleepdata)
+    
     try {
-        const sleep = await User.sleep(req.body); //calling the sleep method from the user model
+        const sleep = await User.sleep(sleepdata, userId); //calling the sleep method from the user model
         return res.status(200).json({ sleep }); //returning the sleep
+        
     } catch (err) {
         return next(err);
     }

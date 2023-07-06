@@ -107,7 +107,7 @@ class User {
             username: user.username,
             email: user.email,
         }; // creating a payload for the token
-        const token = jwt.sign(payload, secretKey, { expiresIn: "20s" }); // creating a token
+        const token = jwt.sign(payload, secretKey, { expiresIn: "1h" }); // creating a token
         console.log("token", token)
         return token; // returning the token 
     
@@ -128,12 +128,13 @@ class User {
 
     static async sleep(sleepData, userId) {
         const requiredFields = [ "starttime", "endtime", "userId"]; // creating an array of the required fields
+        sleepData.userId = userId; // setting the userId to the userId from the request body
         validateFields(sleepData, requiredFields); // validating the required fields
 
         const query = `INSERT INTO sleep(start_time, end_time, user_id)
         VALUES ($1, $2, $3)
         RETURNING id, start_time, end_time, user_id`; // creating a query to insert the sleep data into the database
-        const result = await db.query(query, [sleepData.startime, sleepData.endtime, sleepData.userId]); // querying the database
+        const result = await db.query(query, [sleepData.starttime, sleepData.endtime, userId]); // querying the database
 
         const sleep = result.rows[0]; // creating a variable for the sleep data
 

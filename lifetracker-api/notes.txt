@@ -4,3 +4,10 @@ PSQL commands
 - \dt #to see table
 - \d users #sees detail about the users table
 - SELECT * FROM users; #sees for all records in the table
+
+
+
+
+  // TO DO 
+
+see what the authiticateJWb does in the routes when added as a parameter 
