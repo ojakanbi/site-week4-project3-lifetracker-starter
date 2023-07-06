@@ -59,7 +59,7 @@ function App() {
         ; // Redirecting to the homepage
       }
     }
-  });
+  }), [];
 
   const [loginUser, setLoginUser] = useState({emailaddress: "", password: ""}); // State hook for managing login user data
   console.log(user); // Logging the user data (for debugging purposes)

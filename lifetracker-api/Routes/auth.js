@@ -64,6 +64,15 @@ router.post("/sleep", async (req, res, next) => {
     }
 }) //creating a route for the sleep page")
 
+router.post("/sleepdata", async (req, res, next) => {
+    
+    const id = req.body.id; // Getting the id from the request body
+    const sleepdata = await User.fetchSleepById(id); // Fetching the sleep data by id
+    return res.status(200).json({ sleepdata }); // Returning the sleep data
+  });
+
+  
+
 
 
 module.exports = router; //exporting the router

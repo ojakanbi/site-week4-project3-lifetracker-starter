@@ -2,18 +2,21 @@ import React from "react";
 import "./SleepPage.css";
 import { useState } from "react";
 import axios from "axios";
+import SleepData from "./SleepData";
 
 
 export default function SleepPage(userInfo, setUserInfo) {
     const [ sleepUser, setSleepUser ] = useState({starttime: "", endtime: ""});
-    console.log("current user: ", userInfo);
+   
     const userId = localStorage.getItem('userId');
-    console.log("current user id: ", userId);
+    const [ sleepState, setSleepState ] = useState();
+  
 
     
 
     function handleSubmit(event) {
         event.preventDefault();
+        
     
         axios.post('http://localhost:3001/auth/sleep', {
             userId: userId,
@@ -22,7 +25,7 @@ export default function SleepPage(userInfo, setUserInfo) {
           .then(response => {
             console.log('Sleep data added successfully:', response.data);
             setSleepUser(response.data);
-            
+            setSleepState(true);
             // Handle successful login
           })
           .catch(error => {
@@ -38,7 +41,8 @@ export default function SleepPage(userInfo, setUserInfo) {
         });
       }
   return (
-    <div>
+    <>
+    <div className="sleepForm-container">
         <form onSubmit={handleSubmit}>
             <label htmlFor="starttime">
                 <p>Start datetime</p>
@@ -65,5 +69,8 @@ export default function SleepPage(userInfo, setUserInfo) {
         </form>
     
     </div>
+
+    <SleepData sleepState={sleepState} setSleepState={setSleepState}/>
+    </>
   );
 }
