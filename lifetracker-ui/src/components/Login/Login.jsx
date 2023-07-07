@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import "./login.css";
+import "./Login.css";
 
 import login from "../../images/login.png";
 
