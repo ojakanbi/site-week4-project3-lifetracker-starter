@@ -13,8 +13,8 @@ class User {
         
         return {
             id: user.id,
-            firstName: user.firstName,
-            lastName: user.lastName,
+            firstName: user.first_name,
+            lastName: user.last_name,
             email: user.email,
             username: user.username,
             // createdAt: user.createdAt,  (i dont have this in my db)

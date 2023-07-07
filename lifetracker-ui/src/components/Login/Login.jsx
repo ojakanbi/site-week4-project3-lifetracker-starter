@@ -26,7 +26,8 @@ export default function Login({
         localStorage.setItem("userId", response.data.user.id);
         console.log("user info: ", userInfo);
         localStorage.setItem("token", response.data.token);
-        window.location = "/sleep"; // Redirect to the secret page upon successful login
+        setNavbar(true);
+        // window.location = "/sleep"; // Redirect to the secret page upon successful login
         // Handle successful login
       })
       .catch((error) => {
@@ -51,7 +52,7 @@ export default function Login({
       <div className="login-container">
         <div className="form-title">
           <img className="login-img" src={login}></img>
-          <h1>Welcome</h1>
+          <h1>Welcome,{userInfo.firstName}</h1>
         </div>
 
         {error && (
