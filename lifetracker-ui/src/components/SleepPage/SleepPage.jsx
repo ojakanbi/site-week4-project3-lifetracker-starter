@@ -3,6 +3,7 @@ import "./SleepPage.css";
 import { useState } from "react";
 import axios from "axios";
 import SleepData from "./SleepData";
+import { useEffect } from "react";
 
 
 export default function SleepPage({userInfo, setUserInfo, navbar, setNavbar}) {
@@ -10,6 +11,8 @@ export default function SleepPage({userInfo, setUserInfo, navbar, setNavbar}) {
    
     const userId = localStorage.getItem('userId');
     const [ sleepState, setSleepState ] = useState();
+    const id = localStorage.getItem('userId');
+  const [sleepData, setSleepData] = useState([]);
   
 
     
@@ -33,6 +36,22 @@ export default function SleepPage({userInfo, setUserInfo, navbar, setNavbar}) {
             // Handle error during login
           });
     }
+
+    useEffect(() => {
+       {
+        axios.post('http://localhost:3001/auth/sleepdata', { id: id })
+          .then(response => {
+            console.log('Sleep data retrieved successfully:', response.data);
+            setSleepData(response.data.sleepdata);
+          })
+          .catch(error => {
+            console.error('Error retrieving sleep data:', error);
+          });
+  
+        setSleepState(false);
+      }
+    }, [sleepState, setSleepState, id]);
+  
 
     function handleChange(event) {
         setSleepUser({
@@ -70,7 +89,7 @@ export default function SleepPage({userInfo, setUserInfo, navbar, setNavbar}) {
               </label>
               <button className="sleep-submit" type="submit">Add Sleep</button>
             </form>
-            <SleepData sleepState={sleepState} setSleepState={setSleepState} />
+            <SleepData sleepState={sleepState} setSleepState={setSleepState} setSleepData={setSleepData} sleepData={sleepData} />
           </div>
         ) : (
           <h1>Sign in to view Sleep data</h1>

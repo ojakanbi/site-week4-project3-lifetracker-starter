@@ -3,25 +3,10 @@ import { useEffect, useState } from "react";
 
 import "./SleepPage.css";
 
-export default function SleepData({ sleepState, setSleepState }) {
-  const id = localStorage.getItem('userId');
-  const [sleepData, setSleepData] = useState([]);
+export default function SleepData({ sleepState, setSleepState, sleepData, setSleepData }) {
+  
 
-  useEffect(() => {
-    if (sleepState) {
-      axios.post('http://localhost:3001/auth/sleepdata', { id: id })
-        .then(response => {
-          console.log('Sleep data retrieved successfully:', response.data);
-          setSleepData(response.data.sleepdata);
-        })
-        .catch(error => {
-          console.error('Error retrieving sleep data:', error);
-        });
-
-      setSleepState(false);
-    }
-  }, [sleepState, setSleepState, id]);
-
+  
   function formatDate(dateTime) {
     const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
     const formattedDateTime = new Date(dateTime).toLocaleDateString(undefined, options);
