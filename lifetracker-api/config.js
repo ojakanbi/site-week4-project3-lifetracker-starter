@@ -11,7 +11,12 @@ function getDatabaseUrl() {   //to be able to get the url and connect to the db
     const dbName = process.env.DATABASE_NAME || "lifetracker";
     const dbTestName = process.env.DATABASE_TEST_NAME || "lifetracker_test";
 
-    const url = process.env.DATABASE_URL || `postgres://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`;
+    // local db connection
+    // const url = process.env.DATABASE_URL || `postgres://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`;
+
+
+    // remote db connection
+    const url = process.env.DATABASE_HOSTED_URL
     return url;
 }
 
