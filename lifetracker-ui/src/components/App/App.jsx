@@ -2,10 +2,7 @@ import Navbar from "../Navbar/Navbar"; // Importing the Navbar component
 import Home from "../Home/Home"; // Importing the Home component
 import "./App.css"; // Importing the CSS file for App
 import React from "react"; // Importing React
-import '@fontsource/roboto/300.css'; 
-import '@fontsource/roboto/400.css'; 
-import '@fontsource/roboto/500.css'; 
-import '@fontsource/roboto/700.css'; 
+
 import Secret from "../Secret/Secret"; // Importing the Secret component
 
 import axios from "axios"; // Importing axios library for making HTTP requests
