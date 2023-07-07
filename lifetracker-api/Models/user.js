@@ -49,12 +49,12 @@ class User {
         }
 
         if (credentials.password.length < 6) { // checking if the password is valid
-            throw new BadRequestError("Password must be at least 6 characters.");
+            throw new BadRequestError("Password must be at least 6 characters");
         }
 
         const existingUser = await User.fetchUserByEmail(credentials.emailaddress); // fetching the user by email
         if (existingUser) {
-            throw new BadRequestError(`Duplicate email: ${credentials.email}`); // throwing an error if the email already exists
+            throw new BadRequestError(`Email Address Exist`); // throwing an error if the email already exists
         }
 
         const hashedPassword = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR); // hashing the password

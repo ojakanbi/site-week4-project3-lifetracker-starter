@@ -2,10 +2,12 @@ import React from "react";
 import axios from "axios";
 import "./Register.css";
 import register from "../../images/register.png"
+import {useState} from "react";
 
 
 
 export default function Register({user, setUser}) {
+    const [error, setError] = useState(null);
     function handleChange(event) {
         setUser({
             ...user,
@@ -25,6 +27,9 @@ export default function Register({user, setUser}) {
       })
       .catch(error => {
         console.error('Error registering user:', error);
+        const errorResponse = error.response.data;
+        const errorMessage = errorResponse.match(/Error: (.*?)<br>/)[1];
+        setError(errorMessage);
         // Handle error during registration
       });
     }
@@ -33,10 +38,23 @@ export default function Register({user, setUser}) {
     return (
         <>
         
+        
         <div className="register-header">
             <h1>Register</h1>
+           
         </div>
+        
+        <div>
+        {error && (
+          <div className= "reg-error-container">
+            <h3>{error}</h3>
+          </div>
+        )}
+        </div>
+        
+        
         <div className="register-container">
+            
             
         <form onSubmit={handleSubmit}>
             <div className='grid'></div>

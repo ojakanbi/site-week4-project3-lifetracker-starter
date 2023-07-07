@@ -52,6 +52,33 @@
     align-self: center;
   }
 
+
+.reg-error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  color: red;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+
+.reg-error-container h3 {
+  color: #c12121;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+
   h1{
     color: #ffc000;
     box-shadow: 8px 4px 8px #1985a1;
