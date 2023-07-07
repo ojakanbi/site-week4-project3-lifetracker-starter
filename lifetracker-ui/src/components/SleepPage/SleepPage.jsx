@@ -61,10 +61,14 @@ export default function SleepPage({userInfo, setUserInfo, navbar, setNavbar}) {
       }
 
       console.log("this is the navbar", navbar);
+      const firstname = localStorage.getItem("firstname");
   return (
 
       <>
+       <h1>{firstname} Sleep Page!</h1>
         {navbar ? (
+         
+
           <div className="sleepForm-container">
             <form onSubmit={handleSubmit}>
               <label htmlFor="starttime">
