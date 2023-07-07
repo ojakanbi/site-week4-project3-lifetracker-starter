@@ -87,10 +87,10 @@ function App() {
           <Route path="auth/register" element={<Register user={user} setUser={setUser} />} /> {/* Rendering the Register component */}
           <Route path="auth/login" element={<Login loginUser={loginUser} setLoginUser={setLoginUser} navbar={navbar} setNavbar={setNavbar} userInfo={userInfo} setUserInfo={setUserInfo} />} /> {/* Rendering the Login component */}
           <Route path="/secret" element={<Secret />} /> {/* Rendering the Secret component */}
-          <Route path="/activity" element={<ActivityPage />}/>
-          <Route path = "/exercise" element={<ExercisePage/>} />
+          <Route path="/activity" element={<ActivityPage setNavbar={setNavbar} navbar={navbar}/>}/>
+          <Route path = "/exercise" element={<ExercisePage setNavbar={setNavbar} navbar={navbar}/>} />
           <Route path= "/sleep" element={<SleepPage userInfo={userInfo} setUserInfo={setUserInfo} setNavbar={setNavbar} navbar={navbar} />} />
-          <Route path= "/nutrition" element={<NutritionPage/>}/>
+          <Route path= "/nutrition" element={<NutritionPage setNavbar={setNavbar} navbar={navbar}/> } />
           <Route />
           
         </Routes>

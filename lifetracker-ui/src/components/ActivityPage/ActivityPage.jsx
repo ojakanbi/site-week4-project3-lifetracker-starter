@@ -1,9 +1,22 @@
 import React from "react";
 
-export default function ActivityPage() {
+export default function ActivityPage({navbar}) {
     return (
-        <div>
-            <h3>Activity Page</h3>
-        </div>
+        <>
+        {navbar ? (
+            <div>
+                <h1>
+                    hey
+                </h1>
+            </div>
+        ): (
+            <div>
+                <h1>
+                   Sign in to view Activity data
+                </h1>
+            </div>
+        )}
+        </>
+
     )
 }

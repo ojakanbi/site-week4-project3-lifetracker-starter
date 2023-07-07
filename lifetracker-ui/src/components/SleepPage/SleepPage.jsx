@@ -73,7 +73,7 @@ export default function SleepPage({userInfo, setUserInfo, navbar, setNavbar}) {
             <SleepData sleepState={sleepState} setSleepState={setSleepState} />
           </div>
         ) : (
-          <h1>Sign in to view sleep data</h1>
+          <h1>Sign in to view Sleep data</h1>
         )}
        
       </>
