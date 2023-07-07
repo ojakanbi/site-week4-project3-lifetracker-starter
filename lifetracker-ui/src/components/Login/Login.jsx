@@ -1,8 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./login.css";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+
 import login from "../../images/login.png";
 
 export default function Login({
@@ -79,7 +78,7 @@ const firstname = capitalizeFirstLetter(userInfo.firstName);
             <form className="form" onSubmit={handleSubmit}>
               <label htmlFor="emailaddress">
                 <p>Email Address</p>
-                <TextField
+                <input
                   type="email"
                   name="emailaddress"
                   value={loginUser.emailaddress}
@@ -89,7 +88,7 @@ const firstname = capitalizeFirstLetter(userInfo.firstName);
               </label>
               <label htmlFor="password">
                 <p>Password</p>
-                <TextField
+                <input
                   type="password"
                   name="password"
                   value={loginUser.password}
