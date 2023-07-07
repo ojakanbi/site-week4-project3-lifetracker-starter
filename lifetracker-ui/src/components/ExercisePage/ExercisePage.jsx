@@ -5,7 +5,7 @@ export default function ExercisePag({ navbar }) {
     <>
       {navbar ? (
         <div>
-          <h1>hey</h1>
+          <h1>Exercise Page Coming Soon.... </h1>
         </div>
       ) : (
         <div>

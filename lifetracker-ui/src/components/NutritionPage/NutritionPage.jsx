@@ -7,7 +7,7 @@ export default function NutritionPage({navbar}) {
         {navbar ? (
             <div>
                 <h1>
-                    hey
+                    Nutrition Page Coming Soon....
                 </h1>
             </div>
         ): (
