@@ -26,8 +26,9 @@ export default function Login({
         localStorage.setItem("userId", response.data.user.id);
         console.log("user info: ", userInfo);
         localStorage.setItem("token", response.data.token);
+        
         setNavbar(true);
-        // window.location = "/sleep"; // Redirect to the secret page upon successful login
+        window.location = "/"; // Redirect to the secret page upon successful login
         // Handle successful login
       })
       .catch((error) => {
@@ -46,13 +47,25 @@ export default function Login({
       [event.target.name]: event.target.value,
     });
   }
+
+  function capitalizeFirstLetter(string) {
+    if (typeof string !== 'string' || string.length === 0) {
+      return '';
+    }  // what we get here is a string and we want to return a string
+  
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  }
+const firstname = capitalizeFirstLetter(userInfo.firstName);
+
+  localStorage.setItem("firstname", firstname);
+
   console.log(error);
   return (
     <>
       <div className="login-container">
         <div className="form-title">
           <img className="login-img" src={login}></img>
-          <h1>Welcome,{userInfo.firstName}</h1>
+          <h1>Welcome, {firstname}</h1>
         </div>
 
         {error && (

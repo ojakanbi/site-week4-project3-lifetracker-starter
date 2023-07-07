@@ -10,12 +10,19 @@ import calendar from "../../images/calendar.jpeg"
 
 
 export default function Home() {
+
+    const firstname = localStorage.getItem("firstname");
     return (
         <div className="home-container">
+                <section>
+                    <h1 className="welcome-header">Welcome, {firstname}!</h1>
+                </section>
             <div className="banner-container">
                 <section>
                         <img className = "logo-image"src= {logo}></img>
                 </section>
+
+            
 
                 <section>
                     <img className= "runner-img" src={runner}></img>
