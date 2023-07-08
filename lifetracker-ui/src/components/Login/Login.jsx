@@ -18,7 +18,7 @@ export default function Login({
     event.preventDefault();
 
     axios
-      .post("http://localhost:3001/auth/login", loginUser)
+      .post("https://lifetracker-backend-oj.onrender.com/auth/login", loginUser)
       .then((response) => {
         console.log("User logged in successfully:", response.data);
         setUserInfo(response.data.user);

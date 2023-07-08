@@ -42,7 +42,7 @@ function App() {
      console.log("token: ", token);
    
      if (!decodedToken) {
-       axios.post('http://localhost:3001/auth/decodedtoken', {
+       axios.post('https://lifetracker-backend-oj.onrender.com/auth/decodedtoken', {
          token: token
        })
        .then(response => {
