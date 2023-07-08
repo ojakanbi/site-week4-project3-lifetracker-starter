@@ -22,7 +22,10 @@ By the end of this project you will be able to...
 - [X] Store user-authenticated JWT tokens in the browser's local storage for persisted authentication
 
 ## Application Features
-
+  <a href="https://www.loom.com/share/abace958040f4ed09d82262a83c89a43">
+    oom Message - 7 July 2023 - Watch Video</p>
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/abace958040f4ed09d82262a83c89a43-with-play.gif">
+  </a>
 ### Core Features
 
 - [X] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about. *Note:* This is the only page that unauthenticated users should be able to view.
@@ -719,3 +722,5 @@ Here are the pieces of functionality that should be built out for the backend:
     - [X] In the `routes/activity.js` file:
       - [X] Implement the features outlined in the tests until they're all passing
   - [X] Commit all work to `git`
+ 
+
