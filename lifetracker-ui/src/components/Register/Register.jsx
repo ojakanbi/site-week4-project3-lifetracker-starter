@@ -19,9 +19,9 @@ export default function Register({user, setUser}) {
     function handleSubmit(event) {
         event.preventDefault()
 
-         // Add logic to make the API request to register the user using axios
+         // Add logic to make the API request register the user using axios
    
-    axios.post('http://localhost:3001/auth/register', user)
+    axios.post('https://lifetracker-backend-oj.onrender.com/auth/register', user)
       .then(response => {
         console.log('User registered successfully:', response.data);
 

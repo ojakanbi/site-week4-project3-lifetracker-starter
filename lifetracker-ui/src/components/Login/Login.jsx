@@ -1,8 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-import "./login.css";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+import "./Login.css";
+
 import login from "../../images/login.png";
 
 export default function Login({
@@ -19,7 +18,7 @@ export default function Login({
     event.preventDefault();
 
     axios
-      .post("http://localhost:3001/auth/login", loginUser)
+      .post("https://lifetracker-backend-oj.onrender.com/auth/login", loginUser)
       .then((response) => {
         console.log("User logged in successfully:", response.data);
         setUserInfo(response.data.user);
@@ -79,7 +78,7 @@ const firstname = capitalizeFirstLetter(userInfo.firstName);
             <form className="form" onSubmit={handleSubmit}>
               <label htmlFor="emailaddress">
                 <p>Email Address</p>
-                <TextField
+                <input
                   type="email"
                   name="emailaddress"
                   value={loginUser.emailaddress}
@@ -89,7 +88,7 @@ const firstname = capitalizeFirstLetter(userInfo.firstName);
               </label>
               <label htmlFor="password">
                 <p>Password</p>
-                <TextField
+                <input
                   type="password"
                   name="password"
                   value={loginUser.password}

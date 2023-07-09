@@ -21,7 +21,7 @@ export default function SleepPage({userInfo, setUserInfo, navbar, setNavbar}) {
         event.preventDefault();
         
     
-        axios.post('http://localhost:3001/auth/sleep', {
+        axios.post('https://lifetracker-backend-oj.onrender.com/auth/sleep', {
             userId: userId,
             sleepdata: sleepUser
         })
@@ -39,7 +39,7 @@ export default function SleepPage({userInfo, setUserInfo, navbar, setNavbar}) {
 
     useEffect(() => {
        {
-        axios.post('http://localhost:3001/auth/sleepdata', { id: id })
+        axios.post('https://lifetracker-backend-oj.onrender.com/auth/sleepdata', { id: id })
           .then(response => {
             console.log('Sleep data retrieved successfully:', response.data);
             setSleepData(response.data.sleepdata);
@@ -65,11 +65,7 @@ export default function SleepPage({userInfo, setUserInfo, navbar, setNavbar}) {
   return (
 
       <>
-      
         {navbar ? (
-       
-     
-
           <div className="sleepForm-container">
                
             <h1>{firstname} Sleep Page!</h1>
