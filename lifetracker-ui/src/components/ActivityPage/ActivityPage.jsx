@@ -10,9 +10,9 @@ export default function ActivityPage({ navbar }) {
             <div className="activityHeader">
               <h1>Activity</h1>
               <div className="activityHeader-right">
-                <button className="activityButton-e">Add Exercise</button>
-                <button className="activityButton-n">Log Sleep</button>
-                <button className="activityButton-s">Record Nutrition</button>
+                <button className="activityButton-e" onClick={() => window.location="/exercise"}>Add Exercise</button>
+                <button className="activityButton-n" onClick={() => window.location="/sleep"}>Log Sleep</button>
+                <button className="activityButton-s" onClick={() => window.location="/nutrition"}>Record Nutrition</button>
               </div>
             </div>
             <div className="activityFeed-container">

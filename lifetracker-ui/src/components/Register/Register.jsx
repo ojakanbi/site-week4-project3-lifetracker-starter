@@ -8,6 +8,7 @@ import {useState} from "react";
 
 export default function Register({user, setUser}) {
     const [error, setError] = useState(null);
+    
     function handleChange(event) {
         setUser({
             ...user,
@@ -23,8 +24,11 @@ export default function Register({user, setUser}) {
     axios.post('http://localhost:3001/auth/register', user)
       .then(response => {
         console.log('User registered successfully:', response.data);
+
         // Handle successful registration
+        window.location = "/auth/login"
       })
+      
       .catch(error => {
         console.error('Error registering user:', error);
         const errorResponse = error.response.data;
